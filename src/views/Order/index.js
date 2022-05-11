@@ -36,18 +36,21 @@ const Order = () => {
         items.push(menus[i])
       }
     }
-    let orderData = {
-      order_status: "ARRIVING",
-      user_id: 1,
-      payment_id: 1,
-      address_id: address.value,
-      items: items,
+    if (items.length && address.value) {
+      let orderData = {
+        order_status: "ARRIVING",
+        ordertype_id: 1,
+        user_id: 1,
+        payment_id: 1,
+        address_id: address.value,
+        items: items,
+      }
+      API.addOrder(orderData).then((res) => {
+        console.log(orderData)
+        notify()
+        reset()
+      })
     }
-    API.addOrder(orderData).then((res) => {
-      console.log(orderData)
-      notify()
-      reset()
-    })
   }
 
   return (
@@ -62,7 +65,7 @@ const Order = () => {
               <div
                 className="w-24 h-24"
                 style={{
-                  backgroundImage: "url(" + item.image + ")",
+                  backgroundImage: `url(${item.image})`,
                   backgroundSize: "cover",
                 }}
               />
