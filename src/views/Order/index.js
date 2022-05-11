@@ -32,18 +32,20 @@ const Order = () => {
         items.push(menus[i])
       }
     }
-    let orderData = {
-      order_status: "ARRIVING",
-      user_id: 1,
-      payment_id: 1,
-      adress_id: address.value,
-      items: items,
+    if (items.entries.length && address.value) { 
+      let orderData = {
+        order_status: "ARRIVING",
+        user_id: 1,
+        payment_id: 1,
+        address_id: address.value,
+        items: items,
+      }
+      API.addOrder(orderData).then((res) => {
+        console.log(orderData);
+        notify()
+        reset()
+      })
     }
-    API.addOrder(orderData).then((res) => {
-      console.log(orderData);
-      notify()
-      reset()
-    })
   }
 
   return (
@@ -55,7 +57,7 @@ const Order = () => {
         <div className="grid grid-cols-2 gap-5">
           {menuItems.map((item, i) => (
             <div key={i} className="flex relative">
-              <div className="w-24 h-24" style={{ backgroundImage: "url(" + item.image + ")", backgroundSize: 'cover'  }}/>
+              <div className="w-24 h-24" style={{ backgroundImage: `url(${item.image})`, backgroundSize: 'cover'  }}/>
               <div className="ml-4 flex flex-wrap">
                 <p className="w-full">{item.mealName}</p>
                 <input

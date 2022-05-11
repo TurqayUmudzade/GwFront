@@ -12,8 +12,7 @@ const OrderHistory = () => {
   }, [])
 
   const formatDate = (sqlDate) => {
-    console.log(sqlDate)
-    let date = new Date("sqlDate")
+    let date = new Date(sqlDate)
     const options = { year: "numeric", month: "long", day: "numeric" }
     return date.toLocaleDateString("en-GB", options)
   }
@@ -27,10 +26,11 @@ const OrderHistory = () => {
         </div>
         {orders.map((order, i) => (
           <div className="t-body" key={i + "d"}>
-            <div>flow_1(link)</div>
-            <div>2022-03-14T13:26:44</div>
+            <div>{`${order.Menus[0].MenuOrder.quantity} ${order.Menus[0].mealName} ...`}</div>
+            <div>{order.Payment.amount + ' $'}</div>
             <div>{formatDate(order.createdAt)}</div>
-            <div className="prog green">Downloading</div>
+            <div>{order.Address.street}</div>
+            <div className="prog green mx-auto">{order.order_status}</div>
           </div>
         ))}
       </div>
