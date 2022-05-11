@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import Select from 'react-select';
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import "./style.scss"
 
 const Order = () => {
   const [menuItems, setMenuItems] = useState([])
@@ -14,7 +15,6 @@ const Order = () => {
       setMenuItems(res)
     })
     API.getAddressData().then((res) => {
-      console.log(res)
       setAddresses(Array.from(res, (item) => { return { value: item.id, label: item.street } }))
     })
   }, [])
@@ -36,17 +36,18 @@ const Order = () => {
       order_status: "ARRIVING",
       user_id: 1,
       payment_id: 1,
-      adress_id: 1,
+      adress_id: address.value,
       items: items,
     }
     API.addOrder(orderData).then((res) => {
+      console.log(orderData);
       notify()
       reset()
     })
   }
 
   return (
-    <div className="container w-1/3 mx-auto mt-10  justify-center">
+    <div className="hmm container w-1/3 mx-auto mt-10 justify-center">
       <ToastContainer autoClose={5000} />
       <h1 className="mt-20 mb-9 text-center text-3xl">Order</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 auth">
@@ -73,7 +74,8 @@ const Order = () => {
 
         <h2>Choose Address: </h2>
         <Select
-          className="bg-transparent"
+          className="text-md"
+          classNamePrefix="select"
           value={address.street}
           onChange={setAddress}
           options={addresses}
