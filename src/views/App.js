@@ -8,7 +8,6 @@ import {
 
 import Layout from "components/Layout"
 import Order from "./Orders"
-const Workflow = lazy(() => import("./Workflow"))
 const Login = lazy(() => import("./Login"))
 const Register = lazy(() => import("./Register"))
 
@@ -18,8 +17,7 @@ function App() {
       <React.Suspense fallback={""}>
         <Layout>
           <Routes>
-            <Route path="/" element={<Workflow />}></Route>
-            <Route path="/workflow" element={<Workflow />}></Route>
+            <Route path="/" element={<Order />}></Route>
             <Route path="/order" element={<Order />}></Route>
             <Route path="*" element={<Navigate to="/workflow" />} />
             <Route path="/login" element={<Login />} />
