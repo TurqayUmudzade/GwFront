@@ -57,7 +57,7 @@ const Nav = () => {
 
       <div className="ml-auto flex items-center relative">
         <div className="text-lg text-white mr-4 dark:text-white">
-          {user.username}
+          {/* {user.username} */}
         </div>
         <OutsideClickHandler onOutsideClick={closeMenu}>
           <Gear className="hvr-svg" onClick={handleMenu} />
