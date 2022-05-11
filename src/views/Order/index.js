@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 
 const Order = () => {
-  // let navigate = useNavigate()
   const [menuItems, setMenuItems] = useState([])
   useEffect(() => {
     API.getMenuData().then((res) => {
@@ -12,21 +11,16 @@ const Order = () => {
     })
   }, [])
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    watch,
-  } = useForm()
+  const { register, handleSubmit, watch } = useForm()
 
   const password = useRef({})
   password.current = watch("password", "")
   const onSubmit = (data) => {
     const { menus } = data
-    let res  = []
+    let res = []
     for (let i = 0; i < menuItems.length; i++) {
-      menus[i].menu_id = menuItems[i].id;
-      if(menus[i].quantity){
+      menus[i].menu_id = menuItems[i].id
+      if (menus[i].quantity) {
         res.push(menus[i])
       }
     }
@@ -41,20 +35,16 @@ const Order = () => {
           <div key={i} className="grid grid-cols-2 relative">
             <img src={item.image} className="w-[10em] h-[14em]" alt="menu" />
             <div>
-            <p>{item.mealName}</p>
-            <input
-              type="number"
-              placeholder="0"
-              className="dark:text-black"
-              {...register("menus." + i + ".quantity", { required: false })}
+              <p>{item.mealName}</p>
+              <input
+                type="number"
+                placeholder="0"
+                className="dark:text-black"
+                {...register("menus." + i + ".quantity", { required: false })}
               />
-              </div>
+            </div>
           </div>
         ))}
-
-        <h2 className="my-5">Card Info</h2>
-
-        <button>Submit</button>
       </form>
     </div>
   )

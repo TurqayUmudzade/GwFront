@@ -7,7 +7,8 @@ import {
 } from "react-router-dom"
 
 import Layout from "components/Layout"
-import Order from "./Orders"
+import Order from "./Order"
+import OrderHistory from "./OrderHistory"
 const Login = lazy(() => import("./Login"))
 const Register = lazy(() => import("./Register"))
 
@@ -18,7 +19,7 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Order />}></Route>
-            <Route path="/order" element={<Order />}></Route>
+            <Route path="/order-history" element={<OrderHistory />}></Route>
             <Route path="*" element={<Navigate to="/workflow" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />}></Route>
