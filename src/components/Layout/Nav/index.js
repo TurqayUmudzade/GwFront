@@ -48,7 +48,7 @@ const Nav = () => {
       <p className="ml-4 text-xl">GWU-Meals</p>
       {hasLoggedIn && (
         <div className="ml-10 flex gap-5">
-          <NavLink to="/order" className="left hover:text-white">
+          <NavLink to="/" className="left hover:text-white">
             Place an order
           </NavLink>
           <NavLink to="/order-history" className="left hover:text-white">

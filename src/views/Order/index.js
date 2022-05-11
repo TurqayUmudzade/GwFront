@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { useForm } from "react-hook-form"
 
 const Order = () => {
+  // let navigate = useNavigate()
   const [menuItems, setMenuItems] = useState([])
   useEffect(() => {
     API.getMenuData().then((res) => {
@@ -31,20 +32,26 @@ const Order = () => {
     <div className="container w-1/3 mx-auto mt-10  justify-center">
       <h1 className="mt-20 mb-9 text-center text-3xl">Order</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 auth">
-        {menuItems.map((item, i) => (
-          <div key={i} className="grid grid-cols-2 relative">
-            <img src={item.image} className="w-[10em] h-[14em]" alt="menu" />
-            <div>
-              <p>{item.mealName}</p>
-              <input
-                type="number"
-                placeholder="0"
-                className="dark:text-black"
-                {...register("menus." + i + ".quantity", { required: false })}
-              />
+        <div className="grid grid-cols-3 gap-5">
+          {menuItems.map((item, i) => (
+            <div key={i} className="flex relative">
+              <div className="w-24 h-24 overflow-hidden">
+                <img src={item.image} alt="menu" />
+              </div>
+              <div className="ml-4 flex flex-wrap">
+                <p className="w-full">{item.mealName}</p>
+                <input
+                  type="number"
+                  placeholder="0"
+                  className="def-border h-4 w-20"
+                  {...register("menus." + i + ".quantity", { required: false })}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        <button>Submit</button>
       </form>
     </div>
   )

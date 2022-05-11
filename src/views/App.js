@@ -20,7 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Order />}></Route>
             <Route path="/order-history" element={<OrderHistory />}></Route>
-            <Route path="*" element={<Navigate to="/workflow" />} />
+            <Route path="*" element={<Navigate to="/" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />}></Route>
             <Route path="*" element={<Navigate to="/login" />} />
