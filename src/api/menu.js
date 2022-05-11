@@ -10,3 +10,7 @@ export function getAddressData(data) {
 export function addOrder(data) {
   return apiClient.post("/orders", data).then((response) => response.data)
 }
+
+export function getMyOrders() {
+  return apiClient.get("/orders/me").then((response) => response.data)
+}
