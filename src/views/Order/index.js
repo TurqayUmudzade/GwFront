@@ -52,12 +52,10 @@ const Order = () => {
       <h1 className="mt-20 mb-9 text-center text-3xl">Order</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 auth">
         <h2>Choose Menus: </h2>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-2 gap-5">
           {menuItems.map((item, i) => (
             <div key={i} className="flex relative">
-              <div className="w-24 h-24 overflow-hidden">
-                <img src={item.image} alt="menu" />
-              </div>
+              <div className="w-24 h-24" style={{ backgroundImage: "url(" + item.image + ")", backgroundSize: 'cover'  }}/>
               <div className="ml-4 flex flex-wrap">
                 <p className="w-full">{item.mealName}</p>
                 <input
