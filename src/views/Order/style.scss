@@ -1,0 +1,26 @@
+.dark .hmm {
+    .select__control {
+      @apply border-0 bg-slate-700;
+    }
+  
+    .select__menu {
+      @apply border-0 bg-slate-700;
+      > div > div:hover {
+        @apply bg-blue-500;
+      }
+    }
+  
+    .select__single-value,
+    .select__input-container {
+      color: white !important;
+    }
+  
+    .select__option--is-focused {
+      @apply bg-blue-500;
+    }
+  
+    .select__option--is-selected {
+      background-color: transparent;
+    }
+  }
+  
