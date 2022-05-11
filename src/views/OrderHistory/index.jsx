@@ -13,7 +13,7 @@ const OrderHistory = () => {
 
   const formatDate = (sqlDate) => {
     console.log(sqlDate)
-    let date = new Date("sqlDate")
+    let date = new Date(sqlDate)
     const options = { year: "numeric", month: "long", day: "numeric" }
     return date.toLocaleDateString("en-GB", options)
   }

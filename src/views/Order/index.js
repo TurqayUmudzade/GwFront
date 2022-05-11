@@ -1,7 +1,7 @@
 import API from "api"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import Select from 'react-select';
+import Select from "react-select"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import "./style.scss"
@@ -9,13 +9,17 @@ import "./style.scss"
 const Order = () => {
   const [menuItems, setMenuItems] = useState([])
   const [addresses, setAddresses] = useState([])
-  const [address, setAddress] = useState('')
+  const [address, setAddress] = useState("")
   useEffect(() => {
     API.getMenuData().then((res) => {
       setMenuItems(res)
     })
     API.getAddressData().then((res) => {
-      setAddresses(Array.from(res, (item) => { return { value: item.id, label: item.street } }))
+      setAddresses(
+        Array.from(res, (item) => {
+          return { value: item.id, label: item.street }
+        })
+      )
     })
   }, [])
 
@@ -36,11 +40,11 @@ const Order = () => {
       order_status: "ARRIVING",
       user_id: 1,
       payment_id: 1,
-      adress_id: address.value,
+      address_id: address.value,
       items: items,
     }
     API.addOrder(orderData).then((res) => {
-      console.log(orderData);
+      console.log(orderData)
       notify()
       reset()
     })
@@ -55,7 +59,13 @@ const Order = () => {
         <div className="grid grid-cols-2 gap-5">
           {menuItems.map((item, i) => (
             <div key={i} className="flex relative">
-              <div className="w-24 h-24" style={{ backgroundImage: "url(" + item.image + ")", backgroundSize: 'cover'  }}/>
+              <div
+                className="w-24 h-24"
+                style={{
+                  backgroundImage: "url(" + item.image + ")",
+                  backgroundSize: "cover",
+                }}
+              />
               <div className="ml-4 flex flex-wrap">
                 <p className="w-full">{item.mealName}</p>
                 <input
