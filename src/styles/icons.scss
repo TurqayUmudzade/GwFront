@@ -1,0 +1,7 @@
+.path-red {
+  &:hover {
+    > path {
+      @apply fill-red;
+    }
+  }
+}

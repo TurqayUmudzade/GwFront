@@ -1,0 +1,31 @@
+.ReactModalPortal .ReactModal__Content {
+  width: 70vw;
+  height: fit-content;
+  @apply rounded-md shadow-sm dark:bg-slate-700;
+  border: 1px solid rgb(226 232 240) !important;
+  padding: 0 !important;
+}
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+  background-color: rgb(124 124 124 / 30%);
+}
+
+.dark .ReactModalPortal .ReactModal__Content {
+  border: 0px solid black !important;
+}
+
+.dark .ReactModal__Overlay.ReactModal__Overlay--after-open {
+  background-color: rgb(124 124 124 / 80%) !important;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+}

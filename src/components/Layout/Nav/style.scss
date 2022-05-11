@@ -1,0 +1,65 @@
+nav {
+  a.left {
+    position: relative;
+  }
+
+  a.left:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -1px;
+    left: 0;
+    @apply bg-white dark:bg-blue-500;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  a.left:hover:before {
+    visibility: visible;
+    width: 100%;
+  }
+
+  .fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+  }
+  .fade-in {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    width: 210px;
+    background: #ffffff;
+    @apply dark:text-slate-100 dark:bg-slate-700 dark:border-0;
+    border: 1px solid #e2e2e2;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    > div {
+      font-size: 14px;
+      padding: 16px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      &:hover {
+        cursor: pointer;
+        background: #f4f4f4;
+        @apply dark:bg-blue-500;
+        svg {
+          path {
+            @apply fill-main-200 dark:fill-slate-100;
+          }
+        }
+      }
+      svg {
+        margin-left: 16px;
+      }
+    }
+  }
+}

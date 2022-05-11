@@ -1,0 +1,81 @@
+.container {
+  max-width: 1240px;
+}
+html {
+  overflow-y: scroll;
+}
+/* total width */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 14px 14px transparent;
+  border: solid 4px transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 14px 14px rgb(226, 232, 240);
+  border: solid 4px transparent;
+  border-radius: 14px;
+}
+
+/* set button(top and bottom of the scrollbar) */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+body {
+  background: #f5f5f5;
+  @apply dark:bg-slate-800 dark:text-white;
+}
+.def-border {
+  @apply appearance-none w-full text-sm leading-6 bg-transparent text-slate-900 placeholder:text-slate-400 rounded-md py-2 px-4 border border-slate-200 shadow-sm focus:outline-none focus:border-2 focus:border-blue-500;
+  @apply dark:text-slate-100 dark:placeholder:text-slate-500 dark:border-0 dark:focus:border-2 dark:bg-slate-700;
+}
+
+.btn {
+  @apply w-fit rounded-md text-sm font-medium px-3 py-2 cursor-pointer shadow-sm;
+  &-blue {
+    @apply bg-blue-500 text-white hover:bg-blue-400;
+  }
+}
+
+h1 {
+  @apply text-xl font-bold;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}
+
+.auth {
+  input {
+    background: #f4f4f4;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    padding: 17px;
+  }
+  button {
+    @apply bg-main-200 hover:bg-main-400;
+    border-radius: 20px;
+    justify-self: center;
+    padding: 12.5px 30px;
+    color: white;
+  }
+}
+
+input:focus {
+  outline: none;
+}
+
+.file-list-imort {
+  path {
+    @apply dark:fill-blue-400;
+  }
+}

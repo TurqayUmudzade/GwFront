@@ -1,0 +1,26 @@
+.hvr-svg {
+  path {
+    @apply fill-white;
+  }
+  cursor: pointer;
+  &:hover {
+    path {
+      @apply fill-main-200 dark:fill-blue-500;
+    }
+  }
+}
+
+.close-red {
+  cursor: pointer;
+  &:hover {
+    rect {
+      @apply fill-red;
+    }
+  }
+}
+
+.delete {
+  path {
+    @apply hover:fill-red;
+  }
+}

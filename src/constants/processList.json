@@ -1,0 +1,88 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Crop Image",
+            "info": "Artificial intelegence stuff",
+            "params": [
+                {
+                    "name": "height",
+                    "default": "300px"
+                },
+                {
+                    "name": "width",
+                    "default": "300px"
+                },
+                {
+                    "name": "type",
+                    "default": "auto-scale"
+                },
+                {
+                    "name": "somekey",
+                    "default": "lorem"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Computer Vision reader",
+            "info": "Computer Vision stuff",
+            "params": [
+                {
+                    "name": "key1",
+                    "default": "auto"
+                },
+                {
+                    "name": "key2",
+                    "default": "jpg"
+                },
+                {
+                    "name": "key3",
+                    "default": "def-val"
+                },
+                {
+                    "name": "key4",
+                    "default": "def-val"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Image Filter",
+            "info": "Artificial intelegence stuff",
+            "params": [
+                {
+                    "name": "height",
+                    "default": "300px"
+                },
+                {
+                    "name": "width",
+                    "default": "300px"
+                },
+                {
+                    "name": "type",
+                    "default": "auto-scale"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Face detection",
+            "info": "Computer Vision stuff",
+            "params": [
+                {
+                    "name": "key1",
+                    "default": "auto"
+                },
+                {
+                    "name": "key2",
+                    "default": "jpg"
+                },
+                {
+                    "name": "key3",
+                    "default": "def-val"
+                }
+            ]
+        }
+    ]
+}

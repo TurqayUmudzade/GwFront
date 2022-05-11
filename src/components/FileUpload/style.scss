@@ -1,0 +1,12 @@
+.file-upload {
+  .input-file {
+    opacity: 0; /* invisible but it's there! */
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 200px;
+    position: absolute;
+    cursor: pointer;
+  }
+  height: 200px;
+}
