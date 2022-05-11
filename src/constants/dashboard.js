@@ -1,6 +1,6 @@
 export const arr = [
-  { label: "Workflow name" },
-  { label: "UTC Start time" },
-  { label: "Duration" },
+  { label: "Items" },
+  { label: "Cost" },
+  { label: "Date" },
   { label: "Status" },
 ]

@@ -31,13 +31,14 @@
   border-radius: 4px;
   @apply bg-white dark:bg-slate-700;
   .t-head {
-    @apply grid  py-5 font-bold border-b px-4;
-    grid-template-columns: 50px repeat(4, 1fr);
+    @apply grid  py-5 font-bold border-b px-4 text-center;
+    grid-template-columns: repeat(4, 1fr);
   }
   .t-body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
+    text-align: center;
     padding: 20px 16px;
   }
 }
