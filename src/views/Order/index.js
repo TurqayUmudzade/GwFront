@@ -2,6 +2,8 @@ import API from "api"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import Select from 'react-select';
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Order = () => {
   const [menuItems, setMenuItems] = useState([])
@@ -23,11 +25,11 @@ const Order = () => {
 
   const onSubmit = (data) => {
     const { menus } = data
-    let finalMenus = []
+    let items = []
     for (let i = 0; i < menuItems.length; i++) {
       menus[i].menu_id = menuItems[i].id
       if (menus[i].quantity) {
-        finalMenus.push(menus[i])
+        items.push(menus[i])
       }
     }
     let orderData = {
@@ -35,7 +37,7 @@ const Order = () => {
       user_id: 1,
       payment_id: 1,
       adress_id: 1,
-      items: res,
+      items: items,
     }
     API.addOrder(orderData).then((res) => {
       notify()
