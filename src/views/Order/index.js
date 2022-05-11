@@ -1,16 +1,14 @@
 import API from "api"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import Select from 'react-select';
 
 const Order = () => {
-  // let navigate = useNavigate()
   const [menuItems, setMenuItems] = useState([])
   const [addresses, setAddresses] = useState([])
   const [address, setAddress] = useState('')
   useEffect(() => {
     API.getMenuData().then((res) => {
-      console.log(res)
       setMenuItems(res)
     })
     API.getAddressData().then((res) => {
@@ -19,10 +17,10 @@ const Order = () => {
     })
   }, [])
 
-  const { register, handleSubmit, watch } = useForm()
+  const { register, handleSubmit, reset } = useForm()
 
-  const password = useRef({})
-  password.current = watch("password", "")
+  const notify = () => toast.success("Order placed!")
+
   const onSubmit = (data) => {
     const { menus } = data
     let finalMenus = []
@@ -32,11 +30,22 @@ const Order = () => {
         finalMenus.push(menus[i])
       }
     }
-    console.log(finalMenus)
+    let orderData = {
+      order_status: "ARRIVING",
+      user_id: 1,
+      payment_id: 1,
+      adress_id: 1,
+      items: res,
+    }
+    API.addOrder(orderData).then((res) => {
+      notify()
+      reset()
+    })
   }
 
   return (
     <div className="container w-1/3 mx-auto mt-10  justify-center">
+      <ToastContainer autoClose={5000} />
       <h1 className="mt-20 mb-9 text-center text-3xl">Order</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-5 auth">
         <h2>Choose Menus: </h2>

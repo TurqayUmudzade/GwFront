@@ -7,3 +7,6 @@ export function getMenuData(data) {
 export function getAddressData(data) {
   return apiClient.get("/addresses", data).then((response) => response.data)
 }
+export function addOrder(data) {
+  return apiClient.post("/orders", data).then((response) => response.data)
+}

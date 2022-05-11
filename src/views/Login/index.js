@@ -1,6 +1,5 @@
 import classNames from "classnames"
 import { useForm } from "react-hook-form"
-import { ReactComponent as Logo } from "assets/logo.svg"
 import { useNavigate, NavLink } from "react-router-dom"
 
 const Login = () => {
