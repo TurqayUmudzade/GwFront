@@ -32,7 +32,7 @@ const Order = () => {
         items.push(menus[i])
       }
     }
-    if (items.entries.length && address.value) { 
+    if (items.length && address.value) { 
       let orderData = {
         order_status: "ARRIVING",
         user_id: 1,
