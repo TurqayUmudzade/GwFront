@@ -35,6 +35,7 @@ const Order = () => {
     if (items.length && address.value) { 
       let orderData = {
         order_status: "ARRIVING",
+        ordertype_id: 1,
         user_id: 1,
         payment_id: 1,
         address_id: address.value,
